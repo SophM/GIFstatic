@@ -1,6 +1,6 @@
-# GIFstatic
+# GIFstatic - Around the world
 
-In this project, I built a web page that dynamically creates buttons and displays GIFs corresponding to the user input. The user is asked to enter a city or a monument. The theme is then called "Around the world" and the idea is to "travel"/discover the world though GIFs. It is fascinating to see what is out there to describe/represent famous cities or monuments!
+In this project, I built a web page that dynamically creates buttons and displays GIFs corresponding to the user input. The theme is "Around the world" and the user is asked to enter a city or a monument. The idea is to "travel"/discover the world though GIFs. It is fascinating to see what is out there to describe/represent famous cities or monuments!
 
 [Click me to check the app out!](https://sophm.github.io/GIFstatic/)
 
