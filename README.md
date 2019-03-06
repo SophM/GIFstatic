@@ -4,7 +4,7 @@ In this project, I built a web page that dynamically creates buttons and display
 
 [Click me to check the app out!](https://sophm.github.io/GIFstatic/)
 
-The GIFs, along with their rating, are obtained by making AJAX request to the GIPHY API.
+The GIFs, along with their rating, are obtained by making AJAX requests to the GIPHY API. Some constraints have been applied on the ratings so that this app is family-friendly. The GIFs are static when displayed but the user can click on them to animate them. Once animated, the user can click on them again to make them static and vice-versa.
 
 This app has a responsive layout and can be visited on different devices!
 
@@ -22,16 +22,16 @@ To build this game, I used the following technologies:
 
 ### Screenshot of the app at the beginning
 
-![Screenshot of the app at the beginning]()
+![Screenshot of the app at the beginning](https://github.com/SophM/GIFstatic/blob/master/assets/screenshot_gif_for_readme/screenshot-beginning.png?raw=true)
 
 ---
 
-### Screenshot of the app - once a button has been clicked
+### Screenshot of the app once a button has been clicked
 
-![Screenshot of the app - once a button has been clicked]()
+![Screenshot of the app - once a button has been clicked](https://github.com/SophM/GIFstatic/blob/master/assets/screenshot_gif_for_readme/screenshot-button-clicked.png?raw=true)
 
 ---
 
 ### GIF to show the responsive layout of the app
 
-![GIF to show the responsive layout of the app]()
+![GIF to show the responsive layout of the app](https://github.com/SophM/GIFstatic/blob/master/assets/screenshot_gif_for_readme/gif_show_responsive_layout.gif?raw=true)
