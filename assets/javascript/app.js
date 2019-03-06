@@ -30,7 +30,7 @@ function createButton() {
         // create the button 
         var btn = $("<button>");
         // add a class of "topic-button" to the button and Bootstrap's classes for styling
-        btn.addClass("topic-button btn mr-2 ml-2 text-white bg-info");
+        btn.addClass("topic-button btn m-2 text-white bg-info");
         // add a data attribute called "data-name" and give it the value of the element in the array
         btn.attr("data-input", topics[i]);
         // label the button with the value of the element in the array
