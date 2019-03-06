@@ -3,7 +3,7 @@
 // ==================================
 
 // array to store the few first cities/monuments and to add the user input
-var topics = ["London", "Eiffel Tower", "Las Vegas", "Taj Mahal"];
+var topics = ["Paris", "Las Vegas", "Taj Mahal", "Rome", "Time Square", "San Francisco"];
 
 
 // ==================================
@@ -29,7 +29,7 @@ function createButton() {
 
         // create the button 
         var btn = $("<button>");
-        // add a class of "topic-button" to the button so we can refer to it for on.click event and styling
+        // add a class of "topic-button" to the button and Bootstrap's classes for styling
         btn.addClass("topic-button btn mr-2 ml-2 text-white bg-info");
         // add a data attribute called "data-name" and give it the value of the element in the array
         btn.attr("data-input", topics[i]);
@@ -38,47 +38,6 @@ function createButton() {
         // Added the button to the buttons-view div
         $("#keyword-buttons").append(btn);
     }
-}
-
-// function to do the ajax request to the GIPHY API
-function ajaxRequest(searchKeyword) {
-    // store the url to call the GIPHY API
-    // use a keyword for the search called "searchKeyword" and limit the number of results to 10
-    var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + searchKeyword + "api_key=dc6zaTOxFJmzC&limit=10";
-    
-    // ajax request
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    // when the data are back, the function will run    
-    }).then(function(response) {
-        // store the data that we got back in a variable called "results"
-        var results = response.data;
-
-        // everyone of the ten GIFs
-        for (var i = 0; i < results.length; i++) {
-            // create a div for the GIF + its rating
-            var gifDiv = $("<div>");
-            // create a <p> element to display the rating of the GIF
-            var p = $("<p>").text("Rating: " + results[i].rating);
-            // create an <img> element
-            var gifImage = $("<img>");
-            // give a source attribute to the <img> element equal to the static GIF url
-            gifImage.attr("src", );
-            // give a data attribute to the GIF called "data-state" whose value is "static"
-            gifImage.attr("data-state", "static");
-            // give a data attribute to the GIF called "data-still" whose value is the url towards the static GIF
-            gifImage.attr("data-still", );
-            // give a data attribute to the GIF called "data-still" whose value is the url towards the static GIF
-            gifImage.attr("data-animate",);
-            // prepend the rating and the GIF to the div called "gifDiv"
-            gifDiv.prepend(p);
-            gifDiv.prepend(gifImage);
-            // prepend the gifDiv to the gif-display - so they finally appear on the page!
-            $("#gifs-display").prepend(gifDiv);
-        }
-    });
-
 }
 
 
@@ -102,32 +61,83 @@ $("#add-keyword").on("click", function(event) {
 
 // "on click" event listeners to every HTML elements with the "topic-button" class.
 // when they are clicked....
-$(document).on("click", ".topic-button", function () { 
+$(document).on("click", ".topic-button", function () {
+    // empty the "gifs-display" div
+    $("#gifs-display").empty(); 
     // get the value of the button that has been clicked to use it
-    // as the searchKeyword in the ajaxRequest() function
     var search = $(this).attr("data-input");
-    // make the ajax request, store the rating and the GIFs in new HTML element
-    // and prepend them to the existing HTML element with id "gifs-diplay" to display them
-    ajaxRequest(search);
+    // store the url to call the GIPHY API
+    // use a keyword for the search called "search" and limit the number of results to 10
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=DEXqPPOyoHEcrjohpDGVV2qJRMGZ8X1E&limit=10";
+
+    // make the ajax request
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    // when the data are back, the function will run    
+    }).then(function(response) {
+        console.log(response);
+        // store the data that we got back in a variable called "results"
+        var results = response.data;
+        console.log(results);
+
+        // for everyone of the ten GIFs
+        for (var i = 0; i < results.length; i++) {
+
+            // Only taking action if the photo has an appropriate rating
+            if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                // create a div for the GIF + its rating
+                var gifDiv = $("<div>");
+                // give a class to the <div> element called "gif-div" and Bootstrap's classes for styling
+                gifDiv.addClass("gif-div mb-3");
+                // create a <p> element to display the rating of the GIF
+                var p = $("<p>").text("Rating: " + results[i].rating);
+                // give Bootstrap's classes to the <p> element for styling
+                p.addClass("ml-3 mb-1 text-white");
+                // create an <img> element
+                var gifImage = $("<img>");
+                // give a source attribute to the <img> element equal to the static GIF url
+                gifImage.attr("src", results[i].images.fixed_height_still.url);
+                // give a class to the <img> element called "gif"
+                gifImage.addClass("gif m-2 img-thumbnail");
+                // give a data attribute to the GIF called "data-state" whose value is "static"
+                gifImage.attr("data-state", "static");
+                // give a data attribute to the GIF called "data-still" whose value is the url towards the static GIF
+                gifImage.attr("data-still", results[i].images.fixed_height_still.url);
+                // give a data attribute to the GIF called "data-still" whose value is the url towards the static GIF
+                gifImage.attr("data-animate", results[i].images.fixed_height.url);
+                // prepend the rating and the GIF to the div called "gifDiv"
+                gifDiv.append(p);
+                gifDiv.append(gifImage);
+                // prepend the gifDiv to the gif-display - so they finally appear on the page!
+                $("#gifs-display").append(gifDiv);
+            }
+        }
+    });
 });
 
-// "on click" event listener on the GIFs to animate them or make them static
-$(".gifs").on("click", function () { 
+
+// "on click" event listeners to every HTML elements with the "gif" class.
+// when they are clicked....
+$(document).on("click", ".gif", function () { 
     // store the state of the GIF, the url to the animated version and the url to the static version of the GIF
     var state = $(this).attr("data-state");
     var animated_image = $(this).attr("data-animate");
     var still_image = $(this).attr("data-still");
 
     // if the GIF static
-    if(state  === "still") {
-        // change its source attribute and give it the url to the animated version
+    if(state  === "static") {
+        // change its source attribute and give it the url of the animated version
         $(this).attr("src", animated_image);
+        //change its state to animate
         $(this).attr("data-state", "animate");
-      }
-      else {
+    // if the GIF isn't static, so if it is animated
+    } else {
+        // change its source attribute and give it the url of the static version
         $(this).attr("src", still_image);
-        $(this).attr("data-state", "still");
-      }
+        //change its state to still
+        $(this).attr("data-state", "static");
+    }
 
 });
 

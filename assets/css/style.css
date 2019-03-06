@@ -1,0 +1,22 @@
+body {
+    font-family: 'Sniglet', cursive;
+    background-image: url("../images/earth-pic.jpg");
+    background-position: center;
+}
+
+#label {
+    font-size: 1.7rem;
+}
+
+.topic-button {
+    font-size: 1.5rem;
+}
+
+#add-keyword {
+    font-size: 1.3rem;
+}
+
+#jumbo-title {
+    background-color: #20315A;
+}
+

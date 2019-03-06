@@ -8,52 +8,50 @@
     <!-- link the Bootstrap's css file -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- link to Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
     <!-- link my css file -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
     <title>GIFstatic - Around the world</title>
 </head>
 
 <body>
 
-    <div class="container">
-        <h3>***** GIFstatic - Let's see what the world has to offer! *****</h3>
-
+     <!-- for the title of the webpage and the form -->
+    <div id="jumbo-title" class="jumbotron jumbotron-fluid mt-3 mb-1 p-1 text-center text-white">
+        <h2 class="mt-2">------ GIFstatic - Let's see what the world has to offer! ------</h2>
         <!-- form for the user to enter a keyword -->
         <!-- We're using a form so that the user can hit enter instead of clicking the button if they want -->
         <form id="keyword-form">
             <br>
-            <label for="user-input">Enter a city or a monument</label>
-            <br>
-            <input type="text" id="user-input">
+            <label id="label" for="user-input" class="mr-2">Enter a city or monument</label>
+            <input type="text" id="user-input" class="mr-2">
             <!-- Button triggers new keywords to be added -->
-            <br><br>
-            <input id="add-keyword" type="submit" value="Add it!">
+            <input id="add-keyword" class="pl-3 pr-3" type="submit" value="Add it!">
         </form>
-
-        <!-- The keyword buttons will go there  -->
-        <hr>
-        <div id="keyword-buttons"></div>
-
-        <!-- The gifs will go there -->
-        <hr>
-        <div id="gifs-display"></div>
     </div>
 
+    <!-- The keyword buttons will go there  -->
+    <div class="container-fluid text-center mt-4 mx-auto" id="keyword-buttons"></div>
+        
+    <!-- The gifs will go there -->
+    <div id="gifs-display" class="d-flex flex-wrap pt-4 pb-4 m-5 justify-content-center"></div>
 
-        <!-- link the bootstrap's javascript files -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-        <!-- link to the jQuery Library -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!-- link my javascript file -->
-        <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+    <!-- link the bootstrap's javascript files -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- link my javascript file -->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 
 </html>
