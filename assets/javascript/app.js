@@ -15,6 +15,8 @@ function addInput() {
     // store the input written in the textbox into a new variable
     // the trim is to removed everything after the last letter, lingering spaces, punctuation signs, etc...
     var userInput = $("#user-input").val().trim();
+    // empty the text area
+    $("#user-input").val("");
     // add the user input from the textbox to the array "topics"
     topics.push(userInput);
 }
