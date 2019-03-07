@@ -12,7 +12,7 @@ This app has a responsive layout and can be visited on different devices!
 
 ### Technologies used
 
-To build this game, I used the following technologies:
+To build this app, I used the following technologies:
 - HTML
 - CSS
 - Bootstrap
