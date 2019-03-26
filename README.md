@@ -35,3 +35,9 @@ To build this app, I used the following technologies:
 ### GIF to show the responsive layout of the app
 
 ![GIF to show the responsive layout of the app](https://github.com/SophM/GIFstatic/blob/master/assets/screenshot_gif_for_readme/gif_show_responsive_layout.gif?raw=true)
+
+--- 
+
+### Contribution
+
+- Sophie Mallez
